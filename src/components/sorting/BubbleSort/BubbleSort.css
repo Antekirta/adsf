@@ -8,4 +8,9 @@
   outline: solid 1px #222;
   letter-spacing: 1px;
   font-weight: 700;
+  transition: 1s;
+}
+
+.bubble-sort__item.active {
+  background-color: darkred;
 }

@@ -17,26 +17,28 @@ export const BubbleSort = () => {
             </ul>
 
             <button onClick={() => {
-                const sortedArr = sortBubble(arr)
-
-                setArr(sortedArr)
+                sortBubble(arr)
             }}>Sort</button>
         </div>
     )
-}
 
-/**
- * @param {Array} initialArr 
- */
-function sortBubble(initialArr) {
-    for (let i = 0; i < initialArr.length; i++) {
-        for (let j = i; j < initialArr.length; j++) {
-            if (initialArr[i] > initialArr[j]) {
-                [initialArr[i], initialArr[j]] = [initialArr[j], initialArr[i]] // swap 'em!
+    /**
+    * @param {Array} initialArr 
+    */
+    function sortBubble(initialArr) {
+        for (let i = 0; i < initialArr.length; i++) {
+            for (let j = i; j < initialArr.length; j++) {
+
+                setTimeout(() => {
+                    if (initialArr[i] > initialArr[j]) {
+                        
+                        [initialArr[i], initialArr[j]] = [initialArr[j], initialArr[i]] // swap 'em!
+                    }
+
+                    // because otherwise useState wouldn't consider it as new array
+                    setArr([...initialArr])
+                }, 100 * (i + j))
             }
         }
     }
-
-    // because otherwise useState wouldn't consider it as new array
-    return [...initialArr]
 }
