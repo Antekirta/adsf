@@ -20,7 +20,6 @@ class App extends Component {
             </nav>
           </header>
 
-
           <Route exact path="/" component={MainPage}></Route>
 
           <Route path="/sorting/bubble-sort" component={BubbleSort}></Route>
