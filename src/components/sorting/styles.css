@@ -1,0 +1,18 @@
+.sorting__list {
+    list-style-type: none;
+  }
+  
+  .sorting__item {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    outline: solid 1px #222;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: .2s;
+  }
+  
+  .sorting__item.active {
+    background-color: #61DAFB;
+    color: #fff;
+  }

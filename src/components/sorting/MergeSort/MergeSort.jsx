@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "../styles.css"
 
-export const BubbleSort = () => {
+export const MergeSort = () => {
     let [arr, setArr] = useState([])
     let [currentI, setCurrentI] = useState(null)
     let [currentJ, setCurrentJ] = useState(null)
@@ -35,7 +35,7 @@ export const BubbleSort = () => {
             </ul>
 
             <button onClick={() => {
-                sortBubble(arr)
+                sortMerge(arr)
             }}>Sort</button>
         </div>
     )
@@ -43,7 +43,7 @@ export const BubbleSort = () => {
     /**
     * @param {Array} initialArr 
     */
-    function sortBubble(initialArr) {
+    function sortMerge(initialArr) {
         for (let i = 0; i < initialArr.length; i++) {
             for (let j = i; j < initialArr.length; j++) {
                 setTimeout(() => {
