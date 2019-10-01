@@ -1,11 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./BubbleSort.css"
 
 export const BubbleSort = () => {
-    let [arr, setArr] = useState([7, 8, 60, 4, 6, 6, 4, 435, 7, 32, 3, 74, 345, 7, 46, 78, 132, 20, 98, 45, 37, 89, 4, 8, 3, 6, 5])
-
+    let [arr, setArr] = useState([])
     let [currentI, setCurrentI] = useState(null)
     let [currentJ, setCurrentJ] = useState(null)
+
+    useEffect(() => {
+        (async function () {
+            let initialArr = await fetch('http://localhost:3001/array-gen')
+
+            initialArr = await initialArr.json()
+
+            console.log('initialArr: ', initialArr)
+
+            setArr(JSON.parse(initialArr))
+        })()
+    }, [])
 
     return (
         <div className="bubble-sort">

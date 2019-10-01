@@ -4,6 +4,7 @@
 
 .bubble-sort__item {
   display: inline-block;
+  margin-bottom: 15px;
   padding: 10px 15px;
   outline: solid 1px #222;
   letter-spacing: 1px;
@@ -12,6 +13,6 @@
 }
 
 .bubble-sort__item.active {
-  background-color: darkred;
+  background-color: #61DAFB;
   color: #fff;
 }
