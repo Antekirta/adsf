@@ -12,8 +12,6 @@ export const BubbleSort = () => {
 
             initialArr = await initialArr.json()
 
-            console.log('initialArr: ', initialArr)
-
             setArr(JSON.parse(initialArr))
         })()
     }, [])
@@ -48,7 +46,6 @@ export const BubbleSort = () => {
     function sortBubble(initialArr) {
         for (let i = 0; i < initialArr.length; i++) {
             for (let j = i; j < initialArr.length; j++) {
-
                 setTimeout(() => {
                     if (initialArr[i] > initialArr[j]) {
                         [initialArr[i], initialArr[j]] = [initialArr[j], initialArr[i]] // swap 'em!
