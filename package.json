@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "serve": "nodemon server/server.js",
+    "serve": "serve -s build",
     "forever": "forever server/server.js",
     "forever:stop": "forever stopall"
   }

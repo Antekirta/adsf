@@ -1,4 +1,3 @@
-const path = require('path')
 const express = require('express')
 const cors = require('cors')
 
@@ -7,8 +6,6 @@ const app = express()
 app.use(cors({
     origin: /^https?:\/\/localhost:\d{4}/
 }));
-
-app.use(express.static(path.resolve(__dirname, '../build')))
 
 app.get('/array-gen', (req, res) => {
     const length = Math.floor(Math.random() * 100)
