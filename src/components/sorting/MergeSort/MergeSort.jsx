@@ -19,7 +19,7 @@ export const MergeSort = () => {
 
     return (
         <div className="sorting">
-            <h2>Merge sort</h2>
+            <h2>Merge sort 2</h2>
 
             <ul className="sorting__list">
                 {arr.map((item, index) => {
