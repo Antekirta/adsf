@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "../styles.css"
+import { func } from 'prop-types'
 
 export const MergeSort = () => {
     let [arr, setArr] = useState([])
@@ -18,7 +19,7 @@ export const MergeSort = () => {
 
     return (
         <div className="sorting">
-            <h2>Bubble sort</h2>
+            <h2>Merge sort</h2>
 
             <ul className="sorting__list">
                 {arr.map((item, index) => {
@@ -35,29 +36,40 @@ export const MergeSort = () => {
             </ul>
 
             <button onClick={() => {
-                sortMerge(arr)
+                const sorted = sortMerge(arr)
+
+                setArr([...sorted])
             }}>Sort</button>
         </div>
     )
 
-    /**
-    * @param {Array} initialArr 
-    */
     function sortMerge(initialArr) {
-        for (let i = 0; i < initialArr.length; i++) {
-            for (let j = i; j < initialArr.length; j++) {
-                setTimeout(() => {
-                    if (initialArr[i] > initialArr[j]) {
-                        [initialArr[i], initialArr[j]] = [initialArr[j], initialArr[i]] // swap 'em!
-                    }
+        if (initialArr.length < 2) {
+            return initialArr
+        }
+        const middle = Math.floor(initialArr.length / 2)
 
-                    setCurrentI(i)
-                    setCurrentJ(j)
+        const left = initialArr.slice(0, middle)
+        const right = initialArr.slice(middle)
 
-                    // because otherwise useState wouldn't consider it as new array
-                    setArr([...initialArr])
-                }, 100 * (i + j))
+        return sew(sortMerge(left), sortMerge(right))
+    }
+
+    function sew(left, right) {
+        let sewed = [], rightIndex = 0, leftIndex = 0
+
+        while (rightIndex < right.length && leftIndex < left.length) {
+            if (right[rightIndex] < left[leftIndex]) {
+                sewed.push(right[rightIndex])
+                rightIndex++
+            } else {
+                sewed.push(left[leftIndex])
+                leftIndex++
             }
         }
+
+        return sewed
+          .concat(left.slice(leftIndex))
+          .concat(right.slice(rightIndex));
     }
 }
